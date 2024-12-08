@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Import Link for navigation
+import HeaderCom from "./HeaderCom";
 
 function SpeedrunTable() {
   const [speedruns, setSpeedruns] = useState([]);
@@ -20,6 +21,7 @@ function SpeedrunTable() {
 
   return (
     <div>
+      <HeaderCom></HeaderCom>
       <h2>Leaderboard</h2>
       <table>
         <thead>

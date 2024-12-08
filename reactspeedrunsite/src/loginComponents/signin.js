@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -12,6 +14,7 @@ function SignUp() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       alert('User created successfully!');
+      navigate('/'); // Redirect to the leaderboard page
     } catch (error) {
       setError(error.message);
     }

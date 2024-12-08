@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../authContext";
+import HeaderCom from "./HeaderCom";
 
 function SubmitSpeedRun() {
   const { currentUser } = useAuth(); // Fetch current user's details from auth context
@@ -57,6 +58,7 @@ function SubmitSpeedRun() {
 
   return (
     <div style={{ padding: "20px" }}>
+      <HeaderCom></HeaderCom>
       <h2>Submit a Speed Run</h2>
       {currentUser ? (
         <form onSubmit={handleSubmit}>
