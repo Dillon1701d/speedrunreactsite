@@ -7,6 +7,7 @@ import SignUp from './loginComponents/signin';
 import Login from './loginComponents/login';
 import Profile from './loginComponents/profile';
 import SubmitSpeedRun from './components/submitspeedrun';
+import FrontPage from './components/frontPage';
 function App() {
   return (
     <AuthProvider>
@@ -14,7 +15,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/submit" element={<SubmitSpeedRun />} />
-            <Route path="/" element={<SpeedrunTable />} />
+            <Route path="/" element={<FrontPage />} />
             <Route path="/speedrun/:videoId" element={<SpeedrunPage />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
