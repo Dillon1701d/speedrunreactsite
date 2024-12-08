@@ -4,8 +4,6 @@ import { getAuth } from 'firebase/auth'; // Import Firebase authentication
 
 const SpeedrunPage = () => {
   const account = process.env.REACT_APP_STORAGE_ACCOUNT;
-  const sasToken = process.env.REACT_APP_STORAGE_SAS;
-  const containerName = process.env.REACT_APP_STORAGE_CONTAINER;
 
   const location = useLocation();
   const { videoDetails } = location.state || {}; // Get the passed video details
