@@ -1,6 +1,5 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SpeedrunTable from './components/speedrunTable';
 import SpeedrunPage from './components/speedrunpage';
 import { AuthProvider } from './authContext';
 import SignUp from './loginComponents/signin';
