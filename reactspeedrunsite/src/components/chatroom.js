@@ -37,7 +37,16 @@ const ChatRoom = () => {
 
     try {
       const client = new WebPubSubClient({
-        getClientAccessUrl: async () => (await fetch("https://speedrunchatroomapi.azurewebsites.net/api/negotiate")).text(),
+        getClientAccessUrl: async () => {
+          const response = await fetch("https://speedrunchatroomapi.azurewebsites.net/api/negotiate", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*", // Ensure this matches your CORS settings
+            },
+          });
+          return response.text();
+        },
       });
 
       client.on("group-message", (event) => {
