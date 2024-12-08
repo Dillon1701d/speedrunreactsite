@@ -38,6 +38,7 @@ const ChatRoom = () => {
     try {
       const client = new WebPubSubClient({
         getClientAccessUrl: async () => {
+          console.log("Fetching negotiate endpoint...");
           const response = await fetch("https://speedrunchatroomapi.azurewebsites.net/api/negotiate", {
             method: "GET",
             headers: {
@@ -49,7 +50,9 @@ const ChatRoom = () => {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
   
-          return response.text();
+          const url = await response.text();
+          console.log("Received negotiate URL:", url);
+          return url;
         },
       });
   
@@ -58,11 +61,14 @@ const ChatRoom = () => {
         appendMessage(data);
       });
   
+      console.log("Starting client...");
       await client.start();
+      console.log("Joining group...");
       await client.joinGroup("chat"); // Ensure this matches the group name in the backend
   
       setClient(client);
       setConnected(true);
+      console.log("Connected to chat");
     } catch (error) {
       console.error("Error connecting to chat:", error);
     }
