@@ -34,7 +34,7 @@ const ChatRoom = () => {
       console.error("User not signed in. Please log in to connect to the chat.");
       return;
     }
-
+  
     try {
       const client = new WebPubSubClient({
         getClientAccessUrl: async () => {
@@ -42,21 +42,25 @@ const ChatRoom = () => {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*", // Ensure this matches your CORS settings
             },
           });
+  
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+  
           return response.text();
         },
       });
-
+  
       client.on("group-message", (event) => {
         const data = event.message.data;
         appendMessage(data);
       });
-
+  
       await client.start();
       await client.joinGroup("chat"); // Ensure this matches the group name in the backend
-
+  
       setClient(client);
       setConnected(true);
     } catch (error) {
