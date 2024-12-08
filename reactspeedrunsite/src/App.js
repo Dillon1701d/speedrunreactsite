@@ -13,9 +13,9 @@ function App() {
       <div className="App">
         <Router>
           <Routes>
-            <Route path="/" element={<SpeedrunTable />} />
             <Route path="/submit" element={<SubmitSpeedRun />} />
-            <Route path="/speedrun/:id" element={<SpeedrunPage />} /> 
+            <Route path="/" element={<SpeedrunTable />} />
+            <Route path="/speedrun/:videoId" element={<SpeedrunPage />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />

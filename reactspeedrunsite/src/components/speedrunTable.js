@@ -43,7 +43,14 @@ function SpeedrunTable() {
               <td>{run.views}</td>
               <td>{run.likes}</td>
               <td>
-                <Link to={`/speedrun/${run.id}`}>View Details</Link> {/* Link to the video page */}
+                <Link 
+                  to={`/speedrun/${run.id}`} 
+                  state={{ 
+                    videoDetails: run 
+                  }}
+                >
+                  View Details
+                </Link>
               </td>
             </tr>
           ))}
