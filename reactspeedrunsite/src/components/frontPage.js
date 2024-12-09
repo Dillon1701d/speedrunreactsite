@@ -96,7 +96,7 @@ function FrontPage() {
   return (
     <div>
       <HeaderCom />
-      <h1>Speedrun Leaderboards</h1>
+      <h1>Top Speed run leaderboards Leaderboards</h1>
 
       {/* Main Leaderboard */}
       {mainLeaderboard.length > 0 ? (
