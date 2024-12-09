@@ -48,7 +48,7 @@ const SpeedrunPage = () => {
 
     try {
         const response = await fetch(
-            `http://localhost:7071/api/deleteSpeedRun?id=${videoDetails.id}`,
+            `https://videoserviceapi.azurewebsites.net/api/deletespeedrun?id=${videoDetails.id}`,
             {
                 method: 'PUT',
                 headers: {
@@ -79,7 +79,6 @@ const SpeedrunPage = () => {
       alert('You are not authorized to delete this video.');
       return;
     }
-    console.log(`Request URL: http://localhost:7071/api/deleteSpeedRun?id=${videoDetails.id}`);
 
   
     const confirmDelete = window.confirm(
@@ -89,7 +88,7 @@ const SpeedrunPage = () => {
   
     try {
       const response = await fetch(
-        `http://localhost:7071/api/deleteSpeedRun?id=${videoDetails.id}`,
+        `https://videoserviceapi.azurewebsites.net/api/deletespeedrun?id=${videoDetails.id}`,
         {
           method: 'DELETE',
           headers: {
